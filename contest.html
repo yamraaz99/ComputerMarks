@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contest Entry Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h2 {
+      text-align: center;
+    }
+    
+    .slideshow {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    
+    .slideshow img {
+      width: 100%;
+      height: auto;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    
+    .slideshow img.active {
+      opacity: 1;
+    }
+    
+    @keyframes slide {
+      0% { left: 0; }
+      20% { left: 0; }
+      25% { left: -100%; }
+      45% { left: -100%; }
+      50% { left: -200%; }
+      70% { left: -200%; }
+      75% { left: -300%; }
+      95% { left: -300%; }
+      100% { left: -400%; }
+    }
+    
+    .slideshow-container {
+      width: 500%;
+      animation: slide 20s infinite;
+    }
+    
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+    
+    input[type="text"],
+    input[type="date"],
+    input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      margin-top: 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+    
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="slideshow">
+    <div class="slideshow-container">
+      <img src="image1.jpg" class="active">
+      <img src="image2.jpg">
+      <img src="image3.jpg">
+    </div>
+  </div>
+  
+  <div class="container">
+    <h2>Contest Entry Form</h2>
+    <form action="https://getform.io/f/769c5976-a8ed-4a87-ab05-81881d9f4623"
+    method="POST"
+    enctype="multipart/form-data">
+      <label for="photo">Selfie Photo:</label>
+      <input type="file" id="photo" name="photo" accept="image/*" required>
+      
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      
+      <label for="mobile">Mobile Number:</label>
+      <input type="text" id="mobile" name="mobile" required>
+      
+      <label for="birthday">Birthday:</label>
+      <input type="date" id="birthday" name="birthday" required>
+      
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+  <script>
+    function setActiveSlide() {
+      const slides = document.querySelectorAll('.slideshow img');
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove('active');
+      }
+      slides[0].classList.add('active');
+    }
+
+    setActiveSlide();
+  </script>
+</body>
+</html>
